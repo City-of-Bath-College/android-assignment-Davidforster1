@@ -1,0 +1,109 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/header"
+        android:layout_width="300pt"
+        android:layout_height="50pt"
+        android:src="#00e676" />
+
+    <!-- Heading (My Name) --> <TextView
+        android:id="@+id/lblHeading"
+        android:text="David Forster"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:paddingRight="15pt"
+        android:paddingBottom="85pt"
+        android:textSize="30sp"
+        android:textColor="#000000"
+        />
+
+    <!-- Face Picture -->
+    <ImageView
+        android:id="@+id/imgShow"
+        android:layout_width="100dp"
+        android:layout_height="85dp"
+        android:src="@drawable/show"
+        android:layout_alignStart="@id/header"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="45dp"
+        />
+
+    <!-- Birthday Picture --> <ImageView
+        android:id="@+id/imgBirthday"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/birthday"
+        android:layout_below="@id/imgShow"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="20dp"/>
+
+    <!-- Birthday Text --> <TextView
+        android:id="@+id/lblBirthday"
+        android:text="18th May"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:layout_toRightOf="@id/imgBirthday"
+        android:layout_alignTop="@id/imgBirthday"
+        android:layout_alignBottom="@id/imgBirthday"
+        android:gravity="center_vertical"
+        android:textSize="22sp"
+        android:textColor="#000000"
+        />
+
+    <!-- Location Picture --> <ImageView
+    android:id="@+id/imgLocation"
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:src="@drawable/location"
+    android:layout_below="@id/imgBirthday"
+    android:layout_alignParentLeft="true"
+    android:layout_margin="20dp"/>
+
+    <!-- Location Text --> <TextView
+    android:id="@+id/lblLocation"
+    android:text="Bath, United Kingdom"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="15dp"
+    android:layout_toRightOf="@id/imgLocation"
+    android:layout_alignTop="@id/imgLocation"
+    android:layout_alignBottom="@id/imgLocation"
+    android:gravity="center_vertical"
+    android:textSize="22sp"
+    android:textColor="#000000"
+    />
+
+    <!-- Twitter Picture --> <ImageView
+    android:id="@+id/imgTwitter"
+    android:layout_width="50dp"
+    android:layout_height="50dp"
+    android:src="@drawable/twitter"
+    android:layout_below="@id/imgLocation"
+    android:layout_alignParentLeft="true"
+    android:layout_margin="20dp"/>
+
+    <!-- Twitter Text --> <TextView
+    android:id="@+id/lblTwitter"
+    android:text="Dahid"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginRight="15dp"
+    android:layout_toRightOf="@id/imgTwitter"
+    android:layout_alignTop="@id/imgTwitter"
+    android:layout_alignBottom="@id/imgTwitter"
+    android:gravity="center_vertical"
+    android:textSize="22sp"
+    android:textColor="#000000"
+    />
+
+</RelativeLayout>
