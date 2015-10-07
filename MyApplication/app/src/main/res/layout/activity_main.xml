@@ -20,6 +20,16 @@
         android:gravity="center"
         />
 
+    <TextView
+        android:id="@+id/lblScore"
+        android:text="Your score is "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:textSize="22sp"
+        android:gravity="center"
+        />
+
     <Button
         android:id="@+id/btnTrue"
         android:layout_width="150dp"
