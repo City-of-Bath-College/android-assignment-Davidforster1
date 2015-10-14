@@ -22,12 +22,12 @@
 
     <TextView
         android:id="@+id/lblScore"
-        android:text="Your score is "
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
         android:textSize="22sp"
-        android:gravity="center"
+        android:text="Score: 0"
+        android:layout_alignParentBottom="true"
+        android:gravity="right"
         />
 
     <Button

@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnTrue;
     private TextView lblQuestion;
     private ImageView imgPicture;
+    private TextView lblScore;
 
     private List<QuestionObject> questions;
     private QuestionObject currentQuestion;
@@ -42,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
         btnTrue = (Button) findViewById(R.id.btnTrue);
         lblQuestion = (TextView) findViewById(R.id.lblQuestion);
         imgPicture = (ImageView) findViewById(R.id.imgPicture);
+        lblScore = (TextView) findViewById(R.id.lblScore);
+
 
         // set questionnaire text
         lblQuestion.setText("Is my name Dave?");
@@ -112,6 +115,7 @@ public class MainActivity extends AppCompatActivity {
         if (answer == expectedAnswer) {
             // you were right!
         score ++;
+            lblScore.setText("Score: " + score );
             Toast.makeText(MainActivity.this, "Correct!", Toast.LENGTH_SHORT).show();
         } else {
             // you were wrong!
@@ -122,19 +126,34 @@ public class MainActivity extends AppCompatActivity {
         setUpQuestion();
 
     }
-private void endGame(){
+
+   /* @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d("Daves app", "reached onPause");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d("Daves app", "reached onStop");
+    }
+*/
+
+    private void endGame(){
         final AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this)
                 .setTitle("Congratulations")
                 .setMessage("You scored " + score + " points this round!")
                 .setNeutralButton("ok", new DialogInterface.OnClickListener(){
                     public void onClick(DialogInterface dialog, int which) {
-                        //don't do anything yet!
+                        // return back to the intro screen
+                        finish();
                     }
                 })
     .create();
         alertDialog.show();
 
-
     }
 
 } // end activity
+
