@@ -24,7 +24,7 @@ public class ProfileActivity extends AppCompatActivity {
         btnMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("HELLO BUTTON", "SOMETHIB");
+                Log.d("HELLO BUTTON", "SOMETHIB"); // outputs this message to test it works
                 Intent i = new Intent(ProfileActivity.this, IntroductionActivity.class);
                 startActivity(i);
             }

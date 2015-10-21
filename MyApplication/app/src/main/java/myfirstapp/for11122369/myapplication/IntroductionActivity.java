@@ -32,7 +32,6 @@ public class IntroductionActivity extends AppCompatActivity {
         btnAbout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("HELLO BUTTON", "SOMETHIB");
                 Intent  i = new Intent(IntroductionActivity.this, ProfileActivity.class);
                 startActivity(i);
 
@@ -44,7 +43,6 @@ public class IntroductionActivity extends AppCompatActivity {
         btnPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("HELLO BUTTON", "SOMETHIB");
                 Intent i = new Intent(IntroductionActivity.this, MainActivity.class);
                 startActivity(i);
             }
@@ -89,6 +87,5 @@ public class IntroductionActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
-
 
 }

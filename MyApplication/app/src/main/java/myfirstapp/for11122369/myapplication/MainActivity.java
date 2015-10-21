@@ -4,17 +4,23 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.InputType;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
+
+import io.paperdb.Paper;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,11 +31,14 @@ public class MainActivity extends AppCompatActivity {
     private TextView lblQuestion;
     private ImageView imgPicture;
     private TextView lblScore;
+    private String m_Text = "";
 
     private List<QuestionObject> questions;
     private QuestionObject currentQuestion;
     private int index;
     private int score;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
 
         generateQuestions();
         setUpQuestion();
+        Paper.init(this);
 
     }  //onCreate
 
@@ -140,20 +150,63 @@ public class MainActivity extends AppCompatActivity {
     }
 */
 
-    private void endGame(){
-        final AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this)
+    private void endGame() {
+      /*  final AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this)
                 .setTitle("Congratulations")
                 .setMessage("You scored " + score + " points this round!")
                 .setNeutralButton("ok", new DialogInterface.OnClickListener(){
                     public void onClick(DialogInterface dialog, int which) {
                         // return back to the intro screen
-                        finish();
+
+                        // new high score!
+                        HighScoreObject highScore = new HighScoreObject( "Dave", score, new Date().getTime());
+
+                        // get user prefs
+                        List<HighScoreObject> highScores = Paper.book().read("highscores", new ArrayList<HighScoreObject>());
+
+                        // add item
+                        highScores.add(highScore);
+
+                        // save again
+                        Paper.book().write("highscores", highScores);
+
+                        // return back to the intro screen
+
+
                     }
                 })
     .create();
         alertDialog.show();
+*/
 
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Enter your name here:");
+
+// Set up the input
+        final EditText input = new EditText(this);
+// Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
+        input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
+        builder.setView(input);
+
+// Set up the buttons
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                m_Text = input.getText().toString();
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+
+        Paper.book().write("highscores", m_Text); //testing saving it
+        builder.show();
     }
 
 } // end activity
+
+
 
