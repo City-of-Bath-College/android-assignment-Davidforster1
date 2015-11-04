@@ -151,7 +151,48 @@ public class MainActivity extends AppCompatActivity {
 */
 
     private void endGame() {
-      /*  final AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this)
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Enter your name here:");
+
+// Set up the input
+        final EditText input = new EditText(MainActivity.this);
+// Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
+        input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
+        builder.setView(input);
+
+// Set up the buttons
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                m_Text = input.getText().toString(); // user types in their name here
+
+                // new high score!
+                HighScoreObject highScore = new HighScoreObject( "Dave", score, new Date().getTime());
+
+                // get user prefs
+              //  List<HighScoreObject> highScores = Paper.book().read("highscores", new ArrayList<HighScoreObject>());
+
+                // add item
+               // highScores.add(highScore);
+
+                // save again
+             //   Paper.book().write("highscores", highScores); // saving the highscore then the name the user put in
+                finish();
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.cancel();
+            }
+        });
+        builder.show();
+    }
+
+} // end activity
+
+       /*final AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this)
                 .setTitle("Congratulations")
                 .setMessage("You scored " + score + " points this round!")
                 .setNeutralButton("ok", new DialogInterface.OnClickListener(){
@@ -177,36 +218,8 @@ public class MainActivity extends AppCompatActivity {
                 })
     .create();
         alertDialog.show();
+
 */
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Enter your name here:");
-
-// Set up the input
-        final EditText input = new EditText(this);
-// Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
-        input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
-        builder.setView(input);
-
-// Set up the buttons
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                m_Text = input.getText().toString();
-            }
-        });
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
-
-        Paper.book().write("highscores", m_Text); //testing saving it
-        builder.show();
-    }
-
-} // end activity
 
 
 
