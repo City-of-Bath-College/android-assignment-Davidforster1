@@ -10,7 +10,6 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
-
         </activity>
         <activity
             android:name=".ProfileActivity"
@@ -20,9 +19,18 @@
             android:name=".IntroductionActivity"
             android:label="@string/title_activity_introduction" >
             <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".HighScoreActivity"
+            android:label="@string/title_activity_high_score" >
+        </activity>
+        <activity
+            android:name=".row_highscore"
+            android:label="@string/title_activity_row_highscore" >
         </activity>
     </application>
 

@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import java.util.Collections;
 import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView lblQuestion;
     private ImageView imgPicture;
     private TextView lblScore;
-    private String m_Text = "";
+    private String username = "";
 
     private List<QuestionObject> questions;
     private QuestionObject currentQuestion;
@@ -106,7 +107,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (index == questions.size()) {
             // they've used all their questions time to end the game
-            Log.d("DANIELLE_APP", "ended all the questions");
+            Log.d("DAVE_APP", "ended all the questions");
             endGame();
         } else {
 
@@ -165,19 +166,19 @@ public class MainActivity extends AppCompatActivity {
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                m_Text = input.getText().toString(); // user types in their name here
+                username = input.getText().toString(); // user types in their name here
 
                 // new high score!
-                HighScoreObject highScore = new HighScoreObject( "Dave", score, new Date().getTime());
+                HighScoreObject highScore = new HighScoreObject( username, score, new Date().getTime());
 
                 // get user prefs
-              //  List<HighScoreObject> highScores = Paper.book().read("highscores", new ArrayList<HighScoreObject>());
+                List<HighScoreObject> highScores = Paper.book().read("highscores", new ArrayList<HighScoreObject>());
 
                 // add item
-               // highScores.add(highScore);
+                highScores.add(highScore);
 
                 // save again
-             //   Paper.book().write("highscores", highScores); // saving the highscore then the name the user put in
+                Paper.book().write("highscores", highScores); // saving the highscore then the name the user put in
                 finish();
             }
         });

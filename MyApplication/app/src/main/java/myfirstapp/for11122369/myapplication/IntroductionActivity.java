@@ -16,6 +16,7 @@ public class IntroductionActivity extends AppCompatActivity {
 
     private Button btnAbout;
     private Button btnPlay;
+    private Button btnHighscore;
     private TextView lblHighscore;
     private int highscore;
    /* private Button btnHighscore;
@@ -29,11 +30,10 @@ public class IntroductionActivity extends AppCompatActivity {
         // initialising variables
         btnAbout = (Button)findViewById(R.id.btnAbout);
         btnPlay = (Button) findViewById(R.id.btnPlay);
+        btnHighscore = (Button) findViewById(R.id.btnHighscore);
         lblHighscore = (TextView) findViewById(R.id.lblHighscore);
         highscore = 2;
         lblHighscore.setText("Highscore: " + highscore );
-      /*  btnHighscore = (Button)findViewById(R.id.btnHighscore);
-*/
 // setting onclick listeners
         btnAbout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,15 +55,15 @@ public class IntroductionActivity extends AppCompatActivity {
         });
 
 
-       /* btnHighscore.setOnClickListener(new View.OnClickListener() {
+        btnHighscore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(IntroductionActivity.this, ProfileActivity.class);
+                Intent i = new Intent(IntroductionActivity.this, HighScoreActivity.class);
                 startActivity(i);
             }
         });
 
-        btnPlay.setOnClickListener(new View.OnClickListener() {
+        /*btnPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(IntroductionActivity.this, ProfileActivity.class);
