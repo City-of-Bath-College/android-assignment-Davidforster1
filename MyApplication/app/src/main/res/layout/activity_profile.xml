@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#A80000"
+    android:background="#3aa833"
     tools:context=".MainActivity">
 
     <ImageView
@@ -115,6 +115,8 @@
         android:layout_margin="15dp"
         android:text="Menu"
         android:textSize="24sp"
-        android:padding="10dp"/>
+        android:padding="10dp"
+        android:background="#57b6ff"
+        android:textStyle="bold" />
 
 </RelativeLayout>

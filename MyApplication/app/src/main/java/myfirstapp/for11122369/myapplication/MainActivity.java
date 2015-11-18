@@ -16,6 +16,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.parse.GetCallback;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
+
+import com.parse.ParseException;
 import java.util.Collections;
 import java.util.Date;
 import java.util.ArrayList;
@@ -33,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView imgPicture;
     private TextView lblScore;
     private String username = "";
-
+    private boolean expectedAnswer;
     private List<QuestionObject> questions;
     private QuestionObject currentQuestion;
     private int index;
@@ -57,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         // set questionnaire text
-        lblQuestion.setText("Is my name Dave?");
+       lblQuestion.setText("Loading Questions!");
 
         // set image picture
 
@@ -90,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
     private void generateQuestions() {
         questions = new ArrayList<>();
 
-        questions.add(new QuestionObject("Is the capital of England London?", true, R.drawable.england));
+        /*questions.add(new QuestionObject("Is the capital of England London?", true, R.drawable.england));
         questions.add(new QuestionObject("Is the capital of Egypt Cairo?", true, R.drawable.egypt));
         questions.add(new QuestionObject("Is the capital of Germany Berlin?", true, R.drawable.germany));
         questions.add(new QuestionObject("Is the capital of Finland Helsinki?", true, R.drawable.finland));
@@ -100,6 +105,17 @@ public class MainActivity extends AppCompatActivity {
         questions.add(new QuestionObject("Is the capital of Switzerland Bath?", false, R.drawable.switzerland));
         questions.add(new QuestionObject("Is the capital of Nigeria Abuja?", true, R.drawable.nigeria));
         questions.add(new QuestionObject("Is the capital of Australia Sydney?", false, R.drawable.australia));
+*/
+        questions.add(new QuestionObject("bPBOdiaYHC", R.drawable.england));
+        questions.add(new QuestionObject("8Xs1ipLe3l", R.drawable.egypt));
+        questions.add(new QuestionObject("Rzy3MADGLR", R.drawable.germany));
+        questions.add(new QuestionObject("tXx8DPlB34", R.drawable.finland));
+        questions.add(new QuestionObject("tSwTs7f8xx", R.drawable.spain));
+        questions.add(new QuestionObject("9gyaHKtiBz", R.drawable.italy));
+        questions.add(new QuestionObject("tV9Hw4Rn8Z", R.drawable.romania));
+        questions.add(new QuestionObject("KRbLfeEVKc", R.drawable.switzerland));
+        questions.add(new QuestionObject("SBt0NWUHy2", R.drawable.nigeria));
+        questions.add(new QuestionObject("3mlMcZ2v5j", R.drawable.australia));
 
     }
 
@@ -111,17 +127,32 @@ public class MainActivity extends AppCompatActivity {
             endGame();
         } else {
 
-
             currentQuestion = questions.get(index);
 
-            lblQuestion.setText(currentQuestion.getQuestion());
-            imgPicture.setImageResource(currentQuestion.getPicture());
-            index++;
+            ///////////////////////////////////////////
+
+            ParseQuery<ParseObject> query = ParseQuery.getQuery("Question");
+            query.getInBackground(currentQuestion.getQuestion(), new GetCallback<ParseObject>() {
+                public void done(ParseObject object, ParseException e) {
+                    if (e == null) {
+                        // object will be your game score
+                        String textQuestion = object.getString("question");
+                        lblQuestion.setText(textQuestion);
+                        expectedAnswer = object.getBoolean("answer");
+                        imgPicture.setImageResource(currentQuestion.getPicture());
+                        index++;
+                    } else {
+                        // something went wrong
+                    }
+                }
+            });
+
+            //////////////////////////////////////////
+
         }
     }
 
     private void determineButtonPress(boolean answer) {
-        boolean expectedAnswer = currentQuestion.isAnswer();
 
         if (answer == expectedAnswer) {
             // you were right!

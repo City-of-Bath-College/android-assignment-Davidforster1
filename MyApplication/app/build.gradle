@@ -23,4 +23,6 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:23.0.1'
     compile 'io.paperdb:paperdb:1.0' // imports the paper save thing from github
+    compile 'com.parse.bolts:bolts-android:1.+' // allows the api to parse data
+    compile 'com.parse:parse-android:1.+'
 }

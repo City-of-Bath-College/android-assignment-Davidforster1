@@ -11,14 +11,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
-    <Button
-        android:id="@+id/btnMenu"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
-        android:layout_alignParentRight="true"
-        android:layout_margin="15dp"
-        android:text="Menu"
+        <Button
+        android:id="@+id/btnReset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reset"
         android:textSize="24sp"
-        android:padding="10dp"/>
+        android:padding="10dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="false"
+            android:background="#ff3456" />
 
 </RelativeLayout>

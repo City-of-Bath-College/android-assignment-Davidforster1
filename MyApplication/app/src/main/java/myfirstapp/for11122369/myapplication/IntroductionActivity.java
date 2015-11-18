@@ -10,6 +10,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.parse.Parse;
+import com.parse.ParseObject;
+
 public class IntroductionActivity extends AppCompatActivity {
 
     // declaring private variables
@@ -25,7 +28,13 @@ public class IntroductionActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Parse.enableLocalDatastore(this);
         setContentView(R.layout.activity_introduction);
+        Parse.initialize(this, "tFIzdzMxCCR5pf2dNM92oUYTwNxLNVSyEFBrfkO9", "gj7gDSreN4VM4gtX9TKNTjOUlhYyi86TBF5TfUIm");
+
+        ParseObject testObject = new ParseObject("TestObject");
+        testObject.put("foo", "bar");
+        testObject.saveInBackground();
 
         // initialising variables
         btnAbout = (Button)findViewById(R.id.btnAbout);
@@ -77,6 +86,7 @@ public class IntroductionActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_introduction, menu);
         return true;
+
     }
 
     @Override

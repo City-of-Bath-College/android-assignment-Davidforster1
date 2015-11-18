@@ -18,7 +18,7 @@
         android:layout_centerVertical="true"
         android:textSize="22sp"
         android:gravity="center"
-        />
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/lblHighscore"
@@ -40,7 +40,10 @@
         android:layout_centerVertical="true"
         android:layout_margin="2dp"
         android:text="Play!"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:layout_alignParentEnd="false"
+        android:background="#51fcff"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnHighscore"
@@ -50,7 +53,9 @@
         android:layout_centerVertical="true"
         android:layout_margin="2dp"
         android:text="High Scores"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:background="#51fcff"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/btnAbout"
@@ -60,7 +65,9 @@
         android:layout_centerVertical="true"
         android:layout_margin="2dp"
         android:text="About"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        android:background="#51fcff"
+        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/imgPicture"

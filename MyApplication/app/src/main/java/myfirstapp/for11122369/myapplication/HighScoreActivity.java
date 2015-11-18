@@ -24,8 +24,7 @@ public class HighScoreActivity extends AppCompatActivity {
 
     private List<HighScoreObject> highscores;
     private ListView listview;
-    private Button btnMenu;
-    //private Button rButton;
+    private Button btnReset; // Declares reset button
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,13 +36,14 @@ public class HighScoreActivity extends AppCompatActivity {
         HighscoreAdapter adapter = new HighscoreAdapter(highscores);
         listview.setAdapter(adapter);
 
-        btnMenu = (Button) findViewById(R.id.btnMenu);
+        btnReset = (Button) findViewById(R.id.btnReset); // Reset Button
 
-        btnMenu.setOnClickListener(new View.OnClickListener() {
+
+        btnReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(HighScoreActivity.this, IntroductionActivity.class);
-                startActivity(i);
+                Paper.book().delete("highscores"); // resets highscores
+                setContentView(R.layout.activity_high_score);
             }
         });
     }
