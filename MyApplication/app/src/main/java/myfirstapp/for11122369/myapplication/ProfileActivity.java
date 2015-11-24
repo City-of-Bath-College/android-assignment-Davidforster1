@@ -1,36 +1,35 @@
 package myfirstapp.for11122369.myapplication;
 
 import android.content.Intent;
+import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    private Button btnMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        btnMenu = (Button) findViewById(R.id.btnMenu);
 
-
-        btnMenu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d("HELLO BUTTON", "SOMETHIB"); // outputs this message to test it works
-                Intent i = new Intent(ProfileActivity.this, IntroductionActivity.class);
-                startActivity(i);
-            }
-        });
-
+        TextView t3 = (TextView) findViewById(R.id.lblTwitter); // adds a hyperlink to my twitter text
+        t3.setText(
+                Html.fromHtml(
+                        "<a href=\"https://twitter.com/dahid\"<b>@Dahid</b>"));
+        t3.setMovementMethod(LinkMovementMethod.getInstance());
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -53,4 +52,6 @@ public class ProfileActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }
+

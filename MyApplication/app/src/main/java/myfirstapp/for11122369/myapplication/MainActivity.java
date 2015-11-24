@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.media.MediaPlayer;
 
 
 import com.parse.GetCallback;
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
         imgPicture.setImageResource(R.drawable.dave);
 
-        index = 0;
+        index = 0; // initiating variables
         score = 0;
 
         btnFalse.setOnClickListener(new View.OnClickListener() {
@@ -93,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
     }  //onCreate
 
     private void generateQuestions() {
-        questions = new ArrayList<>();
+        questions = new ArrayList<>(); // list of questions come from parse.com using their api
 
         /*questions.add(new QuestionObject("Is the capital of England London?", true, R.drawable.england));
         questions.add(new QuestionObject("Is the capital of Egypt Cairo?", true, R.drawable.egypt));
@@ -152,17 +154,21 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void determineButtonPress(boolean answer) {
-
+    private void determineButtonPress(boolean answer) { // determines whether button press is correct or false
+        MediaPlayer player;
         if (answer == expectedAnswer) {
             // you were right!
         score ++;
-            lblScore.setText("Score: " + score );
+            lblScore.setText("Score: " + score);
             Toast.makeText(MainActivity.this, "Correct!", Toast.LENGTH_SHORT).show();
+            player = MediaPlayer.create(MainActivity.this,R.raw.correct); // plays correct sound
+            player.start();
         } else {
             // you were wrong!
 
             Toast.makeText(MainActivity.this, "False!", Toast.LENGTH_SHORT).show();
+            player = MediaPlayer.create(MainActivity.this,R.raw.error); // plays error sound
+            player.start();
         }
 
         setUpQuestion();
@@ -184,7 +190,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void endGame() {
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this); // declares builder which is going to be the prompt for users to type in their high scores
         builder.setTitle("Enter your name here:");
 
 // Set up the input
@@ -192,6 +198,7 @@ public class MainActivity extends AppCompatActivity {
 // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
         input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
         builder.setView(input);
+        builder.setCancelable(false);
 
 // Set up the buttons
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
@@ -216,42 +223,12 @@ public class MainActivity extends AppCompatActivity {
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
+                finish(); // takes you back to main menu
             }
         });
         builder.show();
     }
-
-} // end activity
-
-       /*final AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this)
-                .setTitle("Congratulations")
-                .setMessage("You scored " + score + " points this round!")
-                .setNeutralButton("ok", new DialogInterface.OnClickListener(){
-                    public void onClick(DialogInterface dialog, int which) {
-                        // return back to the intro screen
-
-                        // new high score!
-                        HighScoreObject highScore = new HighScoreObject( "Dave", score, new Date().getTime());
-
-                        // get user prefs
-                        List<HighScoreObject> highScores = Paper.book().read("highscores", new ArrayList<HighScoreObject>());
-
-                        // add item
-                        highScores.add(highScore);
-
-                        // save again
-                        Paper.book().write("highscores", highScores);
-
-                        // return back to the intro screen
-
-
-                    }
-                })
-    .create();
-        alertDialog.show();
-
-*/
+}
 
 
 

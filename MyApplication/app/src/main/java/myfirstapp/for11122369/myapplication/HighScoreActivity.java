@@ -1,6 +1,7 @@
 package myfirstapp.for11122369.myapplication;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -42,7 +44,10 @@ public class HighScoreActivity extends AppCompatActivity {
         btnReset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                MediaPlayer player;
                 Paper.book().delete("highscores"); // resets highscores
+                player = MediaPlayer.create(HighScoreActivity.this, R.raw.reset);
+                player.start();
                 setContentView(R.layout.activity_high_score);
             }
         });
