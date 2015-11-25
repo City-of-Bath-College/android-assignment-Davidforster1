@@ -22,7 +22,10 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 
 import com.parse.ParseException;
+
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
@@ -207,7 +210,7 @@ public class MainActivity extends AppCompatActivity {
                 username = input.getText().toString(); // user types in their name here
 
                 // new high score!
-                HighScoreObject highScore = new HighScoreObject( username, score, new Date().getTime());
+                HighScoreObject highScore = new HighScoreObject(username, score, new Date().getTime());
 
                 // get user prefs
                 List<HighScoreObject> highScores = Paper.book().read("highscores", new ArrayList<HighScoreObject>());
@@ -215,9 +218,27 @@ public class MainActivity extends AppCompatActivity {
                 // add item
                 highScores.add(highScore);
 
+                // this is ordering the highscores from highest to lowest
+                Collections.sort(highScores, new Comparator<HighScoreObject>() {
+                                public int compare(HighScoreObject a, HighScoreObject b) {
+
+                                    if (a.getScore() < b.getScore()) {
+                                        return 1;
+                                    } else if (a.getScore() > b.getScore()) {
+                                        return -1;
+                                    } else {
+                                        return 0;
+                        }
+                    }
+                });
+
+
                 // save again
                 Paper.book().write("highscores", highScores); // saving the highscore then the name the user put in
+
                 finish();
+
+
             }
         });
         builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
