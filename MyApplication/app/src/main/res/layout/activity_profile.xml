@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#3aa833"
+    android:background="#11b136"
     tools:context=".MainActivity">
 
     <ImageView
@@ -23,7 +23,7 @@
         android:paddingRight="15pt"
         android:paddingBottom="85pt"
         android:textSize="30sp"
-        android:textColor="#000000"
+        android:textColor="#ffffff"
         />
 
     <!-- Face Picture -->
@@ -57,7 +57,7 @@
         android:layout_alignBottom="@id/imgBirthday"
         android:gravity="center_vertical"
         android:textSize="22sp"
-        android:textColor="#000000"
+        android:textColor="#ffffff"
         />
 
     <!-- Location Picture --> <ImageView
@@ -80,7 +80,7 @@
     android:layout_alignBottom="@id/imgLocation"
     android:gravity="center_vertical"
     android:textSize="22sp"
-    android:textColor="#000000"
+    android:textColor="#ffffff"
     />
 
     <!-- Twitter Picture --> <ImageView
@@ -103,7 +103,7 @@
     android:layout_alignBottom="@id/imgTwitter"
     android:gravity="center_vertical"
     android:textSize="22sp"
-    android:textColor="#000000"
+    android:textColorLink="#9D5BFF"
     />
 
 </RelativeLayout>
