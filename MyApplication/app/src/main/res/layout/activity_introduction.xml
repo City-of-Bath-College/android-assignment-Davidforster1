@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00e676"
+    android:background="#11b136"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
@@ -12,13 +12,14 @@
 
     <TextView
         android:id="@+id/lblTitle"
-        android:text="Press Play to Begin the Quiz!"
+        android:text="Welcome to Geo Quiz App!"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:textSize="22sp"
         android:gravity="center"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="#ffffff" />
 
     <TextView
         android:id="@+id/lblHighscore"
@@ -26,8 +27,8 @@
         android:layout_below="@id/lblTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
-        android:layout_margin="5dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="25dp"
         android:textSize="26sp"
         android:gravity="center"
         android:textColor="#fdff34"
@@ -35,64 +36,50 @@
 
     <Button
         android:id="@+id/btnPlay"
-        android:layout_width="350dp"
+        android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_below="@id/lblHighscore"
-        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
         android:text="Play!"
         android:textSize="24sp"
-        android:background="#51fcff"
+        android:background="#3611B1"
         android:textStyle="bold"
-        android:layout_marginLeft="2dp"
-        android:layout_marginRight="2dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginBottom="2dp"
-        android:layout_alignEnd="@+id/imgPicture"
-        android:layout_alignStart="@+id/imgPicture" />
+        android:layout_margin="2dp"
+
+        android:textColor="#ffffff" />
 
     <Button
         android:id="@+id/btnHighscore"
-        android:layout_width="350dp"
+        android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_below="@id/btnPlay"
-        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
         android:text="High Scores"
         android:textSize="24sp"
-        android:background="#51fcff"
+        android:background="#3611B1"
         android:textStyle="bold"
-        android:layout_marginLeft="2dp"
-        android:layout_marginRight="2dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginBottom="2dp"
-        android:layout_alignEnd="@+id/btnPlay"
-        android:layout_alignStart="@+id/btnPlay" />
+        android:layout_margin="2dp"
+        android:textColor="#ffffff" />
 
     <Button
         android:id="@+id/btnAbout"
-        android:layout_width="350dp"
+        android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_below="@id/btnHighscore"
-        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
         android:text="About"
         android:textSize="24sp"
-        android:background="#51fcff"
+        android:background="#3611B1"
         android:textStyle="bold"
-        android:layout_marginLeft="2dp"
-        android:layout_marginRight="2dp"
-        android:layout_marginTop="2dp"
-        android:layout_marginBottom="2dp"
-        android:layout_alignStart="@+id/btnHighscore"
-        android:layout_alignEnd="@+id/btnHighscore" />
+        android:layout_margin="2dp"
+        android:textColor="#ffffff" />
 
     <ImageView
         android:id="@+id/imgPicture"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:src="@drawable/questiontitleimage"
-        android:layout_above="@id/lblTitle"
-        android:layout_centerHorizontal="true"
-        android:layout_margin="5dp"/>
-
-
+        android:src="@drawable/earth"
+        android:layout_alignEnd="@+id/btnPlay"
+        />
 
 </RelativeLayout>

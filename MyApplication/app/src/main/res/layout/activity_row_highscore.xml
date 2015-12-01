@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="myfirstapp.for11122369.myapplication.row_highscore">
+    tools:context="myfirstapp.for11122369.myapplication.row_highscore"
+    android:background="#11b136">
 
     <TextView
         android:id="@+id/lblTitle"
@@ -10,6 +11,8 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:textSize="16sp"
-        android:text="4 - Dave - 11th Nov 2015"/>
+        android:text="4 - Dave - 11th Nov 2015"
+        android:textColor="#ffffff"
+        android:textStyle="bold" />
 
 </LinearLayout>

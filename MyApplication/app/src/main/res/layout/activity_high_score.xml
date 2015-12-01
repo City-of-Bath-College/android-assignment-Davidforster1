@@ -16,12 +16,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Reset"
-        android:textSize="24sp"
+        android:textSize="16sp"
         android:padding="10dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
         android:layout_alignParentRight="true"
             android:layout_alignParentEnd="false"
-            android:background="#ff3456" />
+            android:background="#3611B1"
+            android:textColor="#ffffff"
+            android:textStyle="bold" />
 
 </RelativeLayout>

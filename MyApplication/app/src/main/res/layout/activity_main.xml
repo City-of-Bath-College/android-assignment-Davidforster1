@@ -3,8 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00e676"
-    tools:context=".MainActivity">
+    android:background="#11b136"
+    tools:context=".MainActivity"
+    android:paddingBottom="5dp">
 
 
     <TextView
@@ -14,7 +15,9 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:textSize="22sp"
-        android:gravity="center" />
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/lblScore"
@@ -24,7 +27,9 @@
         android:text="Score: 0"
         android:layout_alignParentBottom="true"
         android:gravity="right"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        android:paddingEnd="10dp" />
 
     <Button
         android:id="@+id/btnTrue"
@@ -36,8 +41,9 @@
         android:text="TRUE"
         android:textSize="24sp"
         android:padding="10dp"
-        android:background="#51fcff"
-        android:textStyle="bold" />
+        android:background="#3611B1"
+        android:textStyle="bold"
+        android:textColor="#ffffff" />
 
     <Button
         android:id="@+id/btnFalse"
@@ -49,8 +55,9 @@
         android:text="FALSE"
         android:textSize="24sp"
         android:padding="10dp"
-        android:background="#51fcff"
-        android:textStyle="bold" />
+        android:background="#3611B1"
+        android:textStyle="bold"
+        android:textColor="#ffffff" />
 
     <ImageView
         android:id="@+id/imgPicture"
