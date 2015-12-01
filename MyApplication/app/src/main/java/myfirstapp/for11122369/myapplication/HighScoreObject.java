@@ -6,12 +6,12 @@ import java.util.Collections;
  * Created by for11122369 on 21/10/2015.
  */
 public class HighScoreObject {
-    //nothing here!
+    //declares variables
     private String name;
     private int score;
     private Long timestamp;
 
-    public HighScoreObject(String name, int score, Long timestamp) {
+    public HighScoreObject(String name, int score, Long timestamp) { // this is how the highscores are stored
         this.name = name;
         this.score = score;
         this.timestamp = timestamp;

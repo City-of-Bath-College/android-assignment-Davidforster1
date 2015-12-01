@@ -7,4 +7,10 @@
     <string name="title_activity_introduction">IntroductionActivity</string>
     <string name="title_activity_high_score">HighScoreActivity</string>
     <string name="title_activity_row_highscore">row_highscore</string>
+    <string name="title_activity_activity_difficulty">activity_difficulty</string>
+    <string name="title_activity_main2">main2</string>
+    <string name="title_activity_main3">main3</string>
+    <string name="title_activity_high_score_medium">high_score_medium</string>
+    <string name="title_activity_high_score_hard">high_score_hard</string>
+    <string name="title_activity_highscore_difficulty">highscore_difficulty</string>
 </resources>

@@ -32,7 +32,7 @@ import java.util.List;
 
 import io.paperdb.Paper;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivityHard extends AppCompatActivity {
 
     // variables go here
 
@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         // set questionnaire text
-       lblQuestion.setText("Loading Questions!");
+        lblQuestion.setText("Loading Questions!");
 
         // set image picture
 
@@ -97,16 +97,12 @@ public class MainActivity extends AppCompatActivity {
     private void generateQuestions() {
         questions = new ArrayList<>(); // list of questions come from parse.com using their api
 
-        questions.add(new QuestionObject("bPBOdiaYHC", R.drawable.england));
-        questions.add(new QuestionObject("8Xs1ipLe3l", R.drawable.egypt));
-        questions.add(new QuestionObject("Rzy3MADGLR", R.drawable.germany));
-        questions.add(new QuestionObject("tXx8DPlB34", R.drawable.finland));
-        questions.add(new QuestionObject("tSwTs7f8xx", R.drawable.spain));
-        questions.add(new QuestionObject("9gyaHKtiBz", R.drawable.italy));
-        questions.add(new QuestionObject("tV9Hw4Rn8Z", R.drawable.romania));
-        questions.add(new QuestionObject("KRbLfeEVKc", R.drawable.switzerland));
-        questions.add(new QuestionObject("SBt0NWUHy2", R.drawable.nigeria));
-        questions.add(new QuestionObject("3mlMcZ2v5j", R.drawable.australia));
+        questions.add(new QuestionObject("qhVtofppcI", R.drawable.wales));
+        questions.add(new QuestionObject("7asIFrVP8c", R.drawable.ireland));
+        questions.add(new QuestionObject("nAz71rzLoV", R.drawable.iraq));
+        questions.add(new QuestionObject("9GbYw5UUNq", R.drawable.malaysia));
+        questions.add(new QuestionObject("6Bfswdg4II", R.drawable.hungary));
+
     }
 
     private void setUpQuestion() {
@@ -146,16 +142,16 @@ public class MainActivity extends AppCompatActivity {
         MediaPlayer player;
         if (answer == expectedAnswer) {
             // you were right!
-        score ++;
+            score ++;
             lblScore.setText("Score: " + score);
-            Toast.makeText(MainActivity.this, "Correct!", Toast.LENGTH_SHORT).show();
-            player = MediaPlayer.create(MainActivity.this,R.raw.correct); // plays correct sound obtained from http://tinyurl.com/glgcak6
+            Toast.makeText(MainActivityHard.this, "Correct!", Toast.LENGTH_SHORT).show();
+            player = MediaPlayer.create(MainActivityHard.this,R.raw.correct); // plays correct sound obtained from http://tinyurl.com/glgcak6
             player.start();
         } else {
             // you were wrong!
 
-            Toast.makeText(MainActivity.this, "False!", Toast.LENGTH_SHORT).show();
-            player = MediaPlayer.create(MainActivity.this,R.raw.error); // plays error sound obtained from http://tinyurl.com/nzxjtsc
+            Toast.makeText(MainActivityHard.this, "False!", Toast.LENGTH_SHORT).show();
+            player = MediaPlayer.create(MainActivityHard.this,R.raw.error); // plays error sound obtained from http://tinyurl.com/nzxjtsc
             player.start();
         }
 
@@ -170,7 +166,7 @@ public class MainActivity extends AppCompatActivity {
         builder.setTitle("Enter your name here:");
 
 // Set up the input
-        final EditText input = new EditText(MainActivity.this);
+        final EditText input = new EditText(MainActivityHard.this);
 // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
         input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PERSON_NAME);
         builder.setView(input);
@@ -183,31 +179,31 @@ public class MainActivity extends AppCompatActivity {
                 username = input.getText().toString(); // user types in their name here
 
                 // new high score!
-                HighScoreObject highScore = new HighScoreObject(username, score, new Date().getTime());
+                HighScoreObject highScoreHard = new HighScoreObject(username, score, new Date().getTime());
 
                 // get user prefs
-                List<HighScoreObject> highScores = Paper.book().read("highscores", new ArrayList<HighScoreObject>());
+                List<HighScoreObject> highScoresHard = Paper.book().read("highscoreshard", new ArrayList<HighScoreObject>());
 
                 // add item
-                highScores.add(highScore);
+                highScoresHard.add(highScoreHard);
 
                 // this is ordering the highscores from highest to lowest
-                Collections.sort(highScores, new Comparator<HighScoreObject>() {
-                                public int compare(HighScoreObject a, HighScoreObject b) {
+                Collections.sort(highScoresHard, new Comparator<HighScoreObject>() {
+                    public int compare(HighScoreObject a, HighScoreObject b) {
 
-                                    if (a.getScore() < b.getScore()) {
-                                        return 1;
-                                    } else if (a.getScore() > b.getScore()) {
-                                        return -1;
-                                    } else {
-                                        return 0;
+                        if (a.getScore() < b.getScore()) {
+                            return 1;
+                        } else if (a.getScore() > b.getScore()) {
+                            return -1;
+                        } else {
+                            return 0;
                         }
                     }
                 });
 
 
                 // save again
-                Paper.book().write("highscores", highScores); // saving the highscore then the name the user put in
+                Paper.book().write("highscoreshard",highScoresHard); // saving the highscore then the name the user put in
 
                 finish();
 

@@ -50,8 +50,6 @@ public class IntroductionActivity extends AppCompatActivity {
         Paper.init(this);
 
 
-
-
 // setting onclick listeners
         btnAbout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,7 +64,7 @@ public class IntroductionActivity extends AppCompatActivity {
         btnPlay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(IntroductionActivity.this, MainActivity.class);
+                Intent i = new Intent(IntroductionActivity.this, DifficultyActivity.class);
                 startActivity(i);
             }
         });
@@ -75,13 +73,15 @@ public class IntroductionActivity extends AppCompatActivity {
         btnHighscore.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(IntroductionActivity.this, HighScoreActivity.class);
+                Intent i = new Intent(IntroductionActivity.this, DifficultyHighscore.class);
                 startActivity(i);
             }
         });
 
     }
 
+
+    // orders the highscores from highest to lowest
 
     @Override
     protected void onResume() {
@@ -90,6 +90,7 @@ public class IntroductionActivity extends AppCompatActivity {
 
         highscore = 0;
 
+            // if no highscores are found, set the value to 09
         if (highScores.size() == 0 )
         {
 

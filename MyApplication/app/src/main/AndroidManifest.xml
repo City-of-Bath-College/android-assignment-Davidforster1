@@ -35,6 +35,30 @@
             android:name=".row_highscore"
             android:label="@string/title_activity_row_highscore" >
         </activity>
+        <activity
+            android:name=".DifficultyActivity"
+            android:label="@string/title_activity_activity_difficulty" >
+        </activity>
+        <activity
+            android:name=".DifficultyHighscore"
+            android:label="@string/title_activity_highscore_difficulty" >
+        </activity>
+        <activity
+            android:name=".MainActivityMedium"
+            android:label="@string/title_activity_main2" >
+        </activity>
+        <activity
+            android:name=".MainActivityHard"
+            android:label="@string/title_activity_main3" >
+        </activity>
+        <activity
+            android:name=".HighScoreActivityMedium"
+            android:label="@string/title_activity_high_score_medium" >
+        </activity>
+        <activity
+            android:name=".HighScoreActivityHard"
+            android:label="@string/title_activity_high_score_hard" >
+        </activity>
     </application>
 
 </manifest>

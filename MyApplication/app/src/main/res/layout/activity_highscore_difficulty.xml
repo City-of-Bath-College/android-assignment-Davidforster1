@@ -12,49 +12,24 @@
 
     <TextView
         android:id="@+id/lblTitle"
-        android:text="Welcome to Geo Quiz App!"
+        android:text="Choose your highscore difficulty!"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:textSize="22sp"
         android:gravity="center"
         android:textStyle="bold"
-        android:textColor="#ffffff" />
+        android:textColor="#ffffff"
+        android:layout_margin="10dp"/>
 
-    <TextView
-        android:id="@+id/lblHighscore"
-        android:text="High score: 0"
+    <Button
+        android:id="@+id/btnHighscoreEasy"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
         android:layout_below="@id/lblTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="25dp"
-        android:textSize="26sp"
-        android:gravity="center"
-        android:textColor="#fdff34"
-        android:textStyle="bold" />
-
-    <Button
-        android:id="@+id/btnPlay"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_below="@id/lblHighscore"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:text="Play!"
-        android:textSize="24sp"
-        android:background="#3611B1"
-        android:textStyle="bold"
-        android:layout_margin="2dp"
-
-        android:textColor="#ffffff" />
-
-    <Button
-        android:id="@+id/btnHighscore"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_below="@id/btnPlay"
-        android:layout_centerHorizontal="true"
-        android:text="High Scores"
+        android:text="Easy"
         android:textSize="24sp"
         android:background="#3611B1"
         android:textStyle="bold"
@@ -62,12 +37,25 @@
         android:textColor="#ffffff" />
 
     <Button
-        android:id="@+id/btnAbout"
+        android:id="@+id/btnHighscoreMedium"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:layout_below="@id/btnHighscore"
+        android:layout_below="@id/btnHighscoreEasy"
         android:layout_centerHorizontal="true"
-        android:text="About"
+        android:text="Medium"
+        android:textSize="24sp"
+        android:background="#3611B1"
+        android:textStyle="bold"
+        android:layout_margin="2dp"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:id="@+id/btnHighscoreHard"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/btnHighscoreMedium"
+        android:layout_centerHorizontal="true"
+        android:text="Hard"
         android:textSize="24sp"
         android:background="#3611B1"
         android:textStyle="bold"
@@ -75,11 +63,11 @@
         android:textColor="#ffffff" />
 
     <!-- image obtained from http://tinyurl.com/bjj63pa -->  <ImageView
-        android:id="@+id/imgPicture"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:src="@drawable/earth"
-        android:layout_centerHorizontal="true"
-         />
+    android:id="@+id/imgPicture"
+    android:layout_width="200dp"
+    android:layout_height="200dp"
+    android:src="@drawable/earth"
+    android:layout_centerHorizontal="true"
+    />
 
 </RelativeLayout>

@@ -22,22 +22,22 @@ import java.util.List;
 
 import io.paperdb.Paper;
 
-public class HighScoreActivity extends AppCompatActivity {
+public class HighScoreActivityHard extends AppCompatActivity {
 
     // declaring private variables
 
-    private List<HighScoreObject> highscores;
+    private List<HighScoreObject> highscoresHard;
     private ListView listview;
     private Button btnReset;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) { // loads highscores during oncreate
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_high_score); // setes content to high score activity
+        setContentView(R.layout.activity_high_score_hard); // setes content to high score activity
         Paper.init(this); // initialises paper to allow highscores to function
-        highscores = Paper.book().read("highscores", new ArrayList<HighScoreObject>());
+        highscoresHard = Paper.book().read("highscoreshard", new ArrayList<HighScoreObject>());
         listview = (ListView) findViewById(R.id.listview);
-        HighscoreAdapter adapter = new HighscoreAdapter(highscores);
+        HighscoreAdapter adapter = new HighscoreAdapter(highscoresHard);
         listview.setAdapter(adapter);
 
         btnReset = (Button) findViewById(R.id.btnReset); // Tells the app where the reset button is located
@@ -48,20 +48,20 @@ public class HighScoreActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 MediaPlayer player;
-                Paper.book().delete("highscores"); // resets highscores sound obtained from http://tinyurl.com/pwo9afz
-                player = MediaPlayer.create(HighScoreActivity.this, R.raw.reset);
+                Paper.book().delete("highscoreshard"); // resets highscores sound obtained from http://tinyurl.com/pwo9afz
+                player = MediaPlayer.create(HighScoreActivityHard.this, R.raw.reset);
                 player.start();
-                setContentView(R.layout.activity_high_score);
+                setContentView(R.layout.activity_high_score_hard);
             }
         });
     }
 
-        // tells paper how to lay out the highscores
+    // tells paper how to lay out the highscores
 
     private class HighscoreAdapter extends ArrayAdapter<HighScoreObject> {
 
         public HighscoreAdapter(List<HighScoreObject> items) {
-            super(HighScoreActivity.this, 0, items);
+            super(HighScoreActivityHard.this, 0, items);
         }
 
         @Override
@@ -73,7 +73,7 @@ public class HighScoreActivity extends AppCompatActivity {
             }
 
             //get the highscore object for the row we're looking at
-            HighScoreObject highscore = highscores.get(position);
+            HighScoreObject highscore = highscoresHard.get(position);
             Date date = new Date(highscore.getTimestamp());
             SimpleDateFormat fmtOut = new SimpleDateFormat("dd-MM-yyyy");
             TextView lblTitle = (TextView) convertView.findViewById(R.id.lblTitle);

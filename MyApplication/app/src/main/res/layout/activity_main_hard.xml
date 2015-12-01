@@ -1,0 +1,73 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#11b136"
+    tools:context=".MainActivity"
+    android:paddingBottom="5dp">
+
+
+    <TextView
+        android:id="@+id/lblQuestion"
+        android:text="Hello world!"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:textSize="22sp"
+        android:gravity="center"
+        android:textColor="#ffffff"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/lblScore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:text="Score: 0"
+        android:layout_alignParentBottom="true"
+        android:gravity="right"
+        android:textStyle="bold"
+        android:textColor="#ffffff"
+        android:paddingEnd="10dp" />
+
+    <Button
+        android:id="@+id/btnTrue"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/lblQuestion"
+        android:layout_alignParentLeft="true"
+        android:layout_margin="15dp"
+        android:text="TRUE"
+        android:textSize="24sp"
+        android:padding="10dp"
+        android:background="#3611B1"
+        android:textStyle="bold"
+        android:textColor="#ffffff" />
+
+    <Button
+        android:id="@+id/btnFalse"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_below="@id/lblQuestion"
+        android:layout_alignParentRight="true"
+        android:layout_margin="15dp"
+        android:text="FALSE"
+        android:textSize="24sp"
+        android:padding="10dp"
+        android:background="#3611B1"
+        android:textStyle="bold"
+        android:textColor="#ffffff" />
+
+    <ImageView
+        android:id="@+id/imgPicture"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="#303F9F"
+        android:layout_above="@id/lblQuestion"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="30dp"/>
+
+
+
+</RelativeLayout>
