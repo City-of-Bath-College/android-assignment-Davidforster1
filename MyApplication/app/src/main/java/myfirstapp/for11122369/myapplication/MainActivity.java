@@ -164,7 +164,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void endGame() {
+    private void endGame() { // Inspired from: http://stackoverflow.com/questions/11585099/alertdialog-show-new-alertdialog-builderthis-is-undefined
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this); // declares builder which is going to be the prompt for users to type in their high scores
         builder.setTitle("Enter your name here:");
