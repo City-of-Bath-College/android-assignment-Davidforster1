@@ -13,6 +13,8 @@ import android.widget.TextView;
 import com.parse.Parse;
 import com.parse.ParseObject;
 
+import org.w3c.dom.Text;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -28,7 +30,10 @@ public class IntroductionActivity extends AppCompatActivity {
     private Button btnPlay;
     private Button btnHighscore;
     private TextView lblHighscore;
+    private TextView lblHighscoreMedium;
+    private TextView lblHighscoreHard;
     private int highscore;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +51,9 @@ public class IntroductionActivity extends AppCompatActivity {
         btnPlay = (Button) findViewById(R.id.btnPlay);
         btnHighscore = (Button) findViewById(R.id.btnHighscore);
         lblHighscore = (TextView) findViewById(R.id.lblHighscore);
+        lblHighscoreMedium = (TextView) findViewById(R.id.lblHighscoreMedium);
+        lblHighscoreHard = (TextView) findViewById(R.id.lblHighscoreHard);
+
 
         Paper.init(this);
 
@@ -87,18 +95,43 @@ public class IntroductionActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         List<HighScoreObject> highScores = Paper.book().read("highscores", new ArrayList<HighScoreObject>());
+        List<HighScoreObject> highscoresmedium = Paper.book().read("highscoresmedium", new ArrayList<HighScoreObject>());
+        List<HighScoreObject> highscoreshard = Paper.book().read("highscoreshard", new ArrayList<HighScoreObject>());
 
         highscore = 0;
 
-            // if no highscores are found, set the value to 09
+            // if no highscores are found, set the value to 0
         if (highScores.size() == 0 )
         {
 
-            lblHighscore.setText("Highscore: 0");
+            lblHighscore.setText("Easy high score: 0");
         }
         else
         {
-             lblHighscore.setText("Highscore: " + highScores.get(0).getScore());
+            lblHighscore.setText("Easy high score: " + highScores.get(0).getName() +  (" - ") + highScores.get(0).getScore());
+        }
+
+        if (highscoresmedium.size() == 0 )
+        {
+
+            lblHighscoreMedium.setText("Medium high score: 0");
+        }
+        else
+        {
+            lblHighscoreMedium.setText("Medium high score: " + highscoresmedium.get(0).getName() +  (" - ") + highscoresmedium.get(0).getScore());
+        }
+
+        if (highscoreshard.size() == 0 )
+        {
+
+            lblHighscoreHard.setText("Hard high score: 0");
+        }
+        else
+        {
+            lblHighscoreHard.setText("Hard high score: " + highscoreshard.get(0).getName() +  (" - ") + highscoreshard.get(0).getScore());
         }
     }
+
+
 }
+

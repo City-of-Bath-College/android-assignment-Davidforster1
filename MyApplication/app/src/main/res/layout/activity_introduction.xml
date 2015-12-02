@@ -10,12 +10,20 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context=".MainActivity">
 
+    <!-- image obtained from http://tinyurl.com/bjj63pa -->  <ImageView
+    android:id="@+id/imgPicture"
+    android:layout_width="200dp"
+    android:layout_height="200dp"
+    android:src="@drawable/earth"
+    android:layout_centerHorizontal="true"
+    />
+
     <TextView
         android:id="@+id/lblTitle"
         android:text="Welcome to Geo Quiz App!"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
+        android:layout_below="@id/imgPicture"
         android:textSize="22sp"
         android:gravity="center"
         android:textStyle="bold"
@@ -23,13 +31,37 @@
 
     <TextView
         android:id="@+id/lblHighscore"
-        android:text="High score: 0"
+        android:text="Easy high score: 0"
         android:layout_below="@id/lblTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="25dp"
-        android:textSize="26sp"
+        android:layout_margin="5dp"
+        android:textSize="22sp"
+        android:gravity="center"
+        android:textColor="#64421d"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/lblHighscoreMedium"
+        android:text="Medium high score: 0"
+        android:layout_below="@id/lblHighscore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:textSize="22sp"
+        android:gravity="center"
+        android:textColor="#C0C0C0"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/lblHighscoreHard"
+        android:text="Hard high score: 0"
+        android:layout_below="@id/lblHighscoreMedium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="22sp"
         android:gravity="center"
         android:textColor="#fdff34"
         android:textStyle="bold" />
@@ -38,7 +70,7 @@
         android:id="@+id/btnPlay"
         android:layout_width="200dp"
         android:layout_height="50dp"
-        android:layout_below="@id/lblHighscore"
+        android:layout_below="@id/lblHighscoreHard"
         android:layout_centerHorizontal="true"
         android:text="Play!"
         android:textSize="24sp"
@@ -73,13 +105,5 @@
         android:textStyle="bold"
         android:layout_margin="2dp"
         android:textColor="#ffffff" />
-
-    <!-- image obtained from http://tinyurl.com/bjj63pa -->  <ImageView
-        android:id="@+id/imgPicture"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:src="@drawable/earth"
-        android:layout_centerHorizontal="true"
-         />
 
 </RelativeLayout>
